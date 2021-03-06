@@ -1,0 +1,24 @@
+{
+  "name": "apprestapi",
+  "version": "1.0.0",
+  "description": "Aplikasi Rest API ke 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinadiansyah77/apprestapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "Ali Nadiansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alinadiansyah77/apprestapi/issues"
+  },
+  "homepage": "https://github.com/alinadiansyah77/apprestapi#readme"
+}
