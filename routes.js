@@ -11,5 +11,7 @@ module.exports=function(app){
     
     app.route('/mahasiswa/tampil/:id')
         .get(jsonku.tampilmahasiswaid);
-     
+    
+    app.route('/mahasiswa/tambah')
+        .post(jsonku.tambahmahasiswa);
 }
