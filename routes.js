@@ -8,5 +8,8 @@ module.exports=function(app){
     
     app.route('/mahasiswa/tampilsemua')
         .get(jsonku.tampilsemuamahasiswa);
+    
+    app.route('/mahasiswa/tampil/:id')
+        .get(jsonku.tampilmahasiswaid);
      
 }
