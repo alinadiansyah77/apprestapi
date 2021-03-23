@@ -9,7 +9,6 @@ exports.ok=function(values, res){
      res.json(data);
      res.end();
 }
-
 //response untuk nested mata kuliah
 exports.oknested=function(values,res){
     //lakukan akumulasi
@@ -30,7 +29,6 @@ exports.oknested=function(values,res){
         }
         return akumulasikan;
     },{});
-
     var data={
         'status': 200,
         'values': hasil
@@ -39,7 +37,7 @@ exports.oknested=function(values,res){
      res.end();
 }
 
-//response untuk nested jurusan
+//response untuk nested jurusan 
 exports.jurusannested=function(values,res){
     //lakukan akumulasi
     const hasil= values.reduce((akumulasikan, item)=>{
