@@ -20,5 +20,10 @@ module.exports=function(app){
 
     app.route('/mahasiswa/hapus')
         .delete(jsonku.hapusmahasiswaid);
+    
+    app.route('/mahasiswa/tampilmatakuliah')
+        .get(jsonku.tampilgroupmatakuliah);
 
+    app.route('/mahasiswa/tampilmahasiwaperjurusan')
+        .get(jsonku.tampiljurusanmahasiswa);
 }

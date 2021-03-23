@@ -18,6 +18,17 @@ exports.tampilsemuamahasiswa = function (req, res) {
     });
 };
 
+// menampilkan mahasiswa per jurusan
+exports.tampiljurusanmahasiswa = function (req, res) {
+    connection.query('select jurusan, id_mahasiswa,nim,nama from mahasiswa order by jurusan', function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            response.jurusannested(rows, res);
+        }
+    });
+};
+
 // menampilkan data mahasiswa berdasarkan id
 exports.tampilmahasiswaid = function (req, res) {
     let id = req.params.id
@@ -65,7 +76,8 @@ exports.ubahmahasiswa = function (req, res) {
 // Mengahapus data mahasiswa berdasarkan id
 exports.hapusmahasiswaid = function (req, res) {
     var id = req.body.id_mahasiswa
-    connection.query('delete from mahasiswa where id_mahasiswa=?', [id], function (error, rows, fields) {
+    connection.query('delete from mahasiswa where id_mahasiswa=?', [id], 
+    function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -73,3 +85,16 @@ exports.hapusmahasiswaid = function (req, res) {
         }
     });
 };
+
+//menampilkan mata kuliah group
+exports.tampilgroupmatakuliah=function(req,res){
+    connection.query('SELECT mahasiswa.id_mahasiswa,mahasiswa.nim,mahasiswa.nama,mahasiswa.jurusan,matakuliah.matakuliah,matakuliah.sks  FROM mahasiswa INNER JOIN krs ON krs.id_mahasiswa = mahasiswa.id_mahasiswa INNER JOIN matakuliah ON krs.id_matakuliah = matakuliah.id_matakuliah order by mahasiswa.id_mahasiswa',
+    function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            response.oknested(rows, res);
+        }
+    });
+
+}
