@@ -11,32 +11,33 @@ exports.registrasi= function(req, res){
     var post={
         username: req.body.username,
         email: req.body.email,
-        password: md5(req.body.password)
+        password: md5(req.body.password),
         role: req.body.role,
         tanggal_daftar: new Date() 
     }
-    var query="select email from ?? where ??";
+    var query="select email from ?? where ??=?";
     var table=["user", "email", post.email];
 
-    query=mysql.format(query,table);
-    connection.query(query,function(error, rows){
+    query= mysql.format(query,table);
+    console.log(query);
+    connection.query(query, function(error, rows){
         if(error){
             console.log(error);
         }else{
             if(rows.length == 0){
-                var query="insert into ?? set ??";
+                var query="insert into ?? set ?";
                 var table=["user"];
-                query=mysql.format(query, table);
-                connection.query(query,post,function(error,rows){
+                query= mysql.format(query, table);
+                connection.query(query, post, function(error, rows){
                     if(error){
                         console.log(error);
-                    }else{
+                    }else {
                         response.ok("Berhasil menambahkan user baru", res);
                     }
                 });
             }else{
-                response.ok("Email sudah terdaftar!");
+                response.ok("Email sudah terdaftar!", res);
             }
         }
-    });
+    })
 }
